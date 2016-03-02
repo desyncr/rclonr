@@ -1,0 +1,11 @@
+# Sleep time in minutes. You'd need to reinstall to configure it.
+#SLEEP=30 # unimplemented
+
+# Base path of directories to syncronize
+BASE_PATH=~
+
+# Space separated directory list to syncronize
+PATHS="Pictures Documents"
+
+# rclone configuration
+RCLONE_PATH=~/Downloads/rclone-v1.27-linux-amd64
