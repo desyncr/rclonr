@@ -10,5 +10,5 @@ fi
 
 # Iterate over PATHS to syncronize
 for TARGET in $PATHS; do
-	$RCLONE_PATH/rclone sync --drive-use-trash --delete-excluded $BASE_PATH/$TARGET gdrive:$TARGET
+	"$RCLONE_PATH/rclone" sync --drive-use-trash --delete-excluded --verbose "$BASE_PATH/$TARGET" gdrive:"$TARGET" &>> "$RCLONR_PATH/.rclonr.log"
 done
