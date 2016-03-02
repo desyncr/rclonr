@@ -1,5 +1,6 @@
 #!/bin/bash
-source ./rclonr.cfg
+RCLONR_PATH="$(cd "$(dirname "$0")" && pwd)"
+source $RCLONR_PATH/rclonr.cfg
 
 # Check internet connection before anything. See http://stackoverflow.com/a/932187
 CONNECTION_OK=$(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null);
@@ -9,5 +10,5 @@ fi
 
 # Iterate over PATHS to syncronize
 for TARGET in $PATHS; do
-	echo $RCLONE_PATH/rclone sync $BASE_PATH/$TARGET gdrive:$TARGET
+	$RCLONE_PATH/rclone sync --drive-use-trash --delete-excluded $BASE_PATH/$TARGET gdrive:$TARGET
 done
